@@ -1,6 +1,7 @@
 package tile;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,23 +29,17 @@ public class TileManager {
 	}
 	
 	public void getTileImage() {
-		try {
-			
-			tile[0] = new Tile();
-			tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
-			
-			tile[1] = new Tile();
-			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sand.png"));
-			
-			tile[2] = new Tile();
-			tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
-			
-			tile[3] = new Tile();
-			tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water_stone.png"));
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		TilesConstants tiles = new TilesConstants();
+		
+		setTile(0, tiles.WATER);
+		setTile(1, tiles.SAND);
+		setTile(2, tiles.GRASS);
+		setTile(3, tiles.STONE_IN_WATER);
+	}
+	
+	public void setTile(int index, BufferedImage tile_texture) {
+		tile[index] = new Tile();
+		tile[index].image = tile_texture;
 	}
 	
 	public void loadMap(String filePath) {
