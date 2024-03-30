@@ -14,8 +14,8 @@ import main.GamePanel;
 public class TileManager {
 
 	GamePanel gp;
-	Tile[] tile;
-	int mapTileNum[][];
+	public Tile[] tile;
+	public int mapTileNum[][];
 	
 	public TileManager(GamePanel gp) {
 		
@@ -31,15 +31,16 @@ public class TileManager {
 	public void getTileImage() {
 		TilesConstants tiles = new TilesConstants();
 		
-		setTile(0, tiles.WATER);
-		setTile(1, tiles.SAND);
-		setTile(2, tiles.GRASS);
-		setTile(3, tiles.STONE_IN_WATER);
+		setTile(0, tiles.WATER, true);
+		setTile(1, tiles.SAND, false);
+		setTile(2, tiles.GRASS, false);
+		setTile(3, tiles.STONE_IN_WATER, true);
 	}
 	
-	public void setTile(int index, BufferedImage tile_texture) {
+	public void setTile(int index, BufferedImage tile_texture, Boolean collissionBol) {
 		tile[index] = new Tile();
 		tile[index].image = tile_texture;
+		tile[index].collission = collissionBol;
 	}
 	
 	public void loadMap(String filePath) {
