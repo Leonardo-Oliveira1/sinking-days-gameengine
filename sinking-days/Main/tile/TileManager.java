@@ -35,6 +35,7 @@ public class TileManager {
 		setTile(1, tiles.SAND, false);
 		setTile(2, tiles.GRASS, false);
 		setTile(3, tiles.STONE_IN_WATER, true);
+		setTile(4, tiles.BUSH, true);
 	}
 	
 	public void setTile(int index, BufferedImage tile_texture, Boolean collissionBol) {
