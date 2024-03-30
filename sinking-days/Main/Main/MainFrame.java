@@ -1,31 +1,29 @@
-package Scenes;
+package Main;
 
-import javax.swing.ImageIcon;
+
 import javax.swing.JFrame;
-import Characters.Player;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.awt.Graphics;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
-public class HomeScene extends JFrame{
+public class MainFrame extends JFrame{
 	
-	public HomeScene() {
+	public MainFrame() {
 		
-		setTitle("joguinho");
-		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		setResizable(false);
+		setTitle("joguinho");
 		
-		setLayout(null);
+		GamePanel gamePanel = new GamePanel();
+		add(gamePanel);
+		
+		pack();
+		
+		setLocationRelativeTo(null);
 		setVisible(true);
 		
-        Player player = new Player();
-		add(player.getPlayer());
+		gamePanel.startGameThread();
+//		setUndecorated(true);
+//		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+//		setLayout(null);
+		
 
     }
 	

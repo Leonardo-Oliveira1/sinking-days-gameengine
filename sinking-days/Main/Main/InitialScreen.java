@@ -8,8 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Scenes.HomeScene;
-
 public class InitialScreen extends JFrame{
 	public InitialScreen() {
 		setTitle("joguinho");
@@ -61,7 +59,7 @@ public class InitialScreen extends JFrame{
 	}
 	
 	public void play(ActionEvent e) {
-		HomeScene hs = new HomeScene();
+		MainFrame hs = new MainFrame();
 		this.dispose();
 	}
 	
